@@ -14,12 +14,19 @@ const RIGHT_LINKS = [
   { label: "FAQ", href: "#" },
 ];
 
-export function Navbar() {
+export function Navbar({ variant = "solid" }: { variant?: "solid" | "overlay" }) {
   const cart = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isOverlay = variant === "overlay";
+  const headerClass = isOverlay
+    ? "absolute top-0 left-0 right-0 z-40 w-full border-b border-white/15 bg-transparent text-white"
+    : "sticky top-0 z-40 w-full border-b border-blush-mid bg-background/85 backdrop-blur-md text-foreground";
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-blush-mid bg-background/85 backdrop-blur-md">
+    <header className={headerClass}>
+      {/* color tokens scoped to overlay */}
+      {isOverlay ? <style>{`.cnc-nav-link{color:rgba(255,255,255,0.92)}.cnc-nav-link:hover{color:#fff}`}</style> : null}
       <div className="container-cnc flex h-16 items-center justify-between gap-4 md:h-20">
         {/* Left links */}
         <nav className="hidden flex-1 items-center gap-7 text-sm text-foreground/80 md:flex">
