@@ -72,7 +72,7 @@ export function About() {
   return (
     <section id="about" className="bg-cream pb-8 pt-16 md:pb-12 md:pt-28">
       <div ref={ref} className="container-cnc grid grid-cols-1 items-stretch gap-12 lg:grid-cols-2">
-        <div className="flex h-full flex-col">
+        <div className="order-2 flex h-full flex-col lg:order-1">
           <div className="overflow-hidden rounded-[1.75rem] border border-blush-light bg-background/65 p-2 shadow-soft md:rounded-[2rem]">
             <img
               src={lifestyle}
@@ -115,12 +115,12 @@ export function About() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center">
+        <div className="order-1 flex flex-col justify-center px-3 sm:px-0 lg:order-2">
           <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
             Why Crust N Crumb
           </p>
-          <h2 className="mt-4 whitespace-nowrap font-['Poppins',sans-serif] text-4xl font-bold leading-[1.05] text-primary sm:text-2xl md:text-4xl">
+          <h2 className="mt-4 font-['Poppins',sans-serif] text-4xl font-bold leading-[1.05] text-primary sm:text-2xl md:whitespace-nowrap md:text-4xl">
             Effortlessly Healthy
           </h2>
           <p className="mt-5 max-w-lg font-['Inter',sans-serif] text-xl leading-relaxed text-text-muted">
@@ -128,7 +128,7 @@ export function About() {
             balanced meals made with real ingredients ready to fuel, enjoy, and nourish your day in
             Pristina.
           </p>
-          <p className="max-w-lg font-['Inter',sans-serif] text-xl leading-relaxed text-text-muted">
+          <p className="hidden max-w-lg font-['Inter',sans-serif] text-xl leading-relaxed text-text-muted md:block">
             Healthy food, softened by color, freshness, and the small pleasure of being cared for.
           </p>
 

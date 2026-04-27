@@ -44,6 +44,18 @@ export function Navbar({ variant = "solid" }: { variant?: "solid" | "overlay" })
   }, [isOverlay]);
 
   useEffect(() => {
+    if (!mobileOpen) return;
+
+    const closeMobileMenuOnScroll = () => {
+      setMobileOpen(false);
+    };
+
+    window.addEventListener("scroll", closeMobileMenuOnScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", closeMobileMenuOnScroll);
+  }, [mobileOpen]);
+
+  useEffect(() => {
     if (cart.count > previousCountRef.current) {
       setCartFeedbackTick((tick) => tick + 1);
     }

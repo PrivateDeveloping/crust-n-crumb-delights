@@ -281,22 +281,31 @@ function MealPlanDialog({ plan }: { plan: MealPlan }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-background shadow-soft ring-1 ring-blush-mid/50 transition hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(158,85,112,0.18)]">
-        <img src={plan.image} alt={plan.name} loading="lazy" className="h-44 w-full object-cover" />
-        <div className="flex flex-1 flex-col p-6">
-          <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
-            <h3 className="font-display text-[1.75rem] leading-tight text-near-black">
+      <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-background shadow-soft ring-1 ring-blush-mid/50 transition hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(158,85,112,0.18)] sm:rounded-3xl">
+        <div className="border-2 border-blush-mid">
+          <img
+            src={plan.image}
+            alt={plan.name}
+            loading="lazy"
+            className="h-60 w-full object-cover"
+          />
+        </div>
+        <div className="flex flex-1 flex-col p-4 sm:p-6">
+          <div className="flex items-start justify-between gap-3 sm:gap-4">
+            <h3 className="min-w-0 font-display text-[1.45rem] leading-tight text-near-black sm:text-[1.75rem]">
               {plan.name}
             </h3>
             <span
-              className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] ${plan.accentBg} ${plan.accentText}`}
+              className={`shrink-0 rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] sm:px-3 sm:text-[10px] sm:tracking-[0.14em] ${plan.accentBg} ${plan.accentText}`}
             >
               {plan.tags[0]}
             </span>
           </div>
-          <p className="mt-3 text-sm leading-6 text-text-muted">{plan.desc}</p>
+          <p className="mt-2.5 text-[13px] leading-5 text-text-muted sm:mt-3 sm:text-sm sm:leading-6">
+            {plan.desc}
+          </p>
 
-          <div className="mt-5 grid grid-cols-3 rounded-2xl border border-blush-mid/70 bg-cream p-3">
+          <div className="mt-4 grid grid-cols-3 rounded-2xl border border-blush-mid/70 bg-cream p-2.5 sm:mt-5 sm:p-3">
             {[
               { label: "Meals", value: plan.mealsPerWeek },
               { label: "Days", value: "5" },
@@ -306,30 +315,32 @@ function MealPlanDialog({ plan }: { plan: MealPlan }) {
                 key={stat.label}
                 className={`text-center ${index === 1 ? "border-x border-blush-mid/70" : ""}`}
               >
-                <p className="text-[10px] uppercase tracking-[0.12em] text-text-muted">
+                <p className="text-[9px] uppercase tracking-[0.1em] text-text-muted sm:text-[10px] sm:tracking-[0.12em]">
                   {stat.label}
                 </p>
-                <p className="mt-1 font-display text-lg leading-none text-near-black">
+                <p className="mt-1 font-display text-base leading-none text-near-black sm:text-lg">
                   {stat.value}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 text-sm leading-6 text-text-muted">
+          <p className="mt-3 text-[13px] leading-5 text-text-muted sm:mt-4 sm:text-sm sm:leading-6">
             <span className="font-semibold text-primary-dark">This week:</span>{" "}
             {plan.sample.join(" · ")}
           </p>
 
-          <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mt-auto flex items-end justify-between gap-3 pt-5 sm:gap-4 sm:pt-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary sm:tracking-[0.16em]">
                 Weekly
               </p>
-              <p className="font-display text-3xl leading-none text-near-black">€{plan.price}</p>
+              <p className="mt-1 font-display text-[2rem] font-bold leading-none text-near-black sm:mt-0 sm:text-3xl">
+                €{plan.price}
+              </p>
             </div>
             <DialogTrigger asChild>
-              <button className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition hover:bg-primary-dark sm:w-fit">
+              <button className="inline-flex w-fit items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-primary-foreground transition hover:bg-primary-dark sm:gap-2 sm:px-5 sm:py-3 sm:text-xs sm:tracking-[0.14em]">
                 View Weekly Menu
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
