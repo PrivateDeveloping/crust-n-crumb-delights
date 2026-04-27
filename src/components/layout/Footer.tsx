@@ -7,23 +7,19 @@ import { whatsappLink } from "@/lib/cart-store";
 const COLUMNS = [
   { title: "Menu", links: ["Salads", "Sandwiches", "Smoothies", "Juices"] },
   { title: "Plans", links: ["Vegan", "High Protein", "Balanced", "Custom"] },
-  { title: "Blog", links: ["Recipes", "Nutrition", "Stories", "Press"] },
-  { title: "Contact", links: [CONFIG.LOCATION, "Pristina, Kosovo"] },
-];
-
-const TRUST = [
-  "🌿 Freshly Prepared Daily",
-  "🚫 No Added Sugar",
-  "✅ 100% Natural Ingredients",
-  "💪 High in Protein",
-  "⚖️ Nutritionally Balanced",
+  { title: "Visit", links: [CONFIG.LOCATION, "Mon-Sat 9AM-6PM", "Sunday Closed"] },
+  { title: "Contact", links: [CONFIG.PHONE_NUMBER, CONFIG.INSTAGRAM_HANDLE, CONFIG.WEBSITE_URL] },
 ];
 
 export function Footer() {
-  const wa = whatsappLink(CONFIG.WHATSAPP_NUMBER, "Përshëndetje! Dua të porosis nga Crust N Crumb.");
+  const year = new Date().getFullYear();
+  const wa = whatsappLink(
+    CONFIG.WHATSAPP_NUMBER,
+    "Përshëndetje! Dua të porosis nga Crust N Crumb.",
+  );
   return (
     <footer className="bg-near-black text-white/80">
-      <div className="container-cnc py-16">
+      <div className="container-cnc py-14 md:py-16">
         <div className="flex flex-col items-center text-center">
           <Logo size={64} variant="dark" />
           <BrandWordmark size="text-4xl" className="mt-3 !text-primary" />
@@ -32,14 +28,14 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left md:grid-cols-4">
           {COLUMNS.map((col) => (
             <div key={col.title}>
               <h4 className="font-display text-lg text-white">{col.title}</h4>
               <ul className="mt-3 space-y-2 text-sm text-white/60">
                 {col.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="hover:text-primary transition">
+                    <a href="#contact" className="transition hover:text-primary">
                       {l}
                     </a>
                   </li>
@@ -72,7 +68,7 @@ export function Footer() {
             href={CONFIG.LOCATION_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-white/15 px-4 text-sm hover:border-primary hover:text-primary"
+            className="inline-flex min-h-10 max-w-full items-center justify-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm hover:border-primary hover:text-primary"
           >
             <MapPin className="h-4 w-4" /> {CONFIG.LOCATION}
           </a>
@@ -80,19 +76,11 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-cnc flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-5 text-xs text-white/55">
-          {TRUST.map((t, i) => (
-            <span key={t} className="flex items-center gap-2">
-              <span>{t}</span>
-              {i < TRUST.length - 1 && <span className="text-white/20">·</span>}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
         <div className="container-cnc py-5 text-center text-xs text-white/45">
-          © 2025 {CONFIG.BRAND} — {CONFIG.CITY} · {CONFIG.WEBSITE_URL}
+          <p className="mb-2">
+            We save your cart and checkout details on this device to make future ordering faster.
+          </p>
+          © {year} {CONFIG.BRAND} — {CONFIG.CITY} · {CONFIG.WEBSITE_URL}
         </div>
       </div>
     </footer>

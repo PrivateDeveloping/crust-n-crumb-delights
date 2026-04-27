@@ -1,13 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { CartSummaryBar } from "@/components/cart/CartSummaryBar";
 import { Hero } from "@/components/sections/Hero";
 import { MenuSection } from "@/components/sections/MenuSection";
 import { About } from "@/components/sections/About";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { MealPlans } from "@/components/sections/MealPlans";
-import { CTABanner } from "@/components/sections/CTABanner";
+import { FindUs } from "@/components/sections/FindUs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,8 +20,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Crust N Crumb — Fresh, Healthy Meals in Pristina" },
       {
         property: "og:description",
-        content:
-          "Balanced salads, sandwiches, smoothies and juices, made fresh daily in Pristina.",
+        content: "Balanced salads, sandwiches, smoothies and juices, made fresh daily in Pristina.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -31,7 +29,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Pinyon+Script&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Pinyon+Script&family=Poppins:wght@600;700&display=swap",
       },
     ],
   }),
@@ -45,12 +43,11 @@ function Index() {
         <Hero />
         <MenuSection />
         <About />
-        <HowItWorks />
-        <Testimonials />
         <MealPlans />
-        <CTABanner />
+        <FindUs />
       </main>
       <Footer />
+      <CartSummaryBar />
       <CartDrawer />
     </div>
   );

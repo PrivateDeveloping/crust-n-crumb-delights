@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
+import logoIcon from "../assets/logo.png?url";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -28,17 +29,31 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, minimum-scale=0.5" },
+      { title: "Crust N Crumb" },
+      {
+        name: "description",
+        content: "Fresh salads, sandwiches, smoothies and juices made daily in Pristina.",
+      },
+      { name: "author", content: "Crust N Crumb" },
+      { property: "og:title", content: "Crust N Crumb" },
+      {
+        property: "og:description",
+        content: "Fresh salads, sandwiches, smoothies and juices made daily in Pristina.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: logoIcon,
+      },
+      {
+        rel: "apple-touch-icon",
+        href: logoIcon,
+      },
       {
         rel: "stylesheet",
         href: appCss,
