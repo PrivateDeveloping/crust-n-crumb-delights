@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-import chickenSunshineImg from "@/assets/chicken-sunshine.png";
-import falafelKickImg from "@/assets/falafel-kick.png";
-import proteinDesireImg from "@/assets/protein-desire.png";
-import veganWishImg from "@/assets/vegan-wish.png";
-// Uncomment this import to use hero100.png as the hero background image.
-import heroBackgroundImg from "@/assets/hero100.png";
+import chickenSunshineImg from "@/assets/chicken-sunshine.webp";
+import falafelKickImg from "@/assets/falafel-kick.webp";
+import proteinDesireImg from "@/assets/protein-desire.webp";
+import veganWishImg from "@/assets/vegan-wish.webp";
+import heroBackgroundImg from "@/assets/hero100.webp";
 import { Navbar } from "@/components/layout/Navbar";
 
 const FEATURED_PRODUCTS = [

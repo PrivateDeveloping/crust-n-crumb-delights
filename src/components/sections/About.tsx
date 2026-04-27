@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
-import lifestyle from "@/assets/bowlAboutUs1.png";
+import lifestyle from "@/assets/bowlAboutUs1.webp";
 import { useFadeIn } from "@/hooks/use-fade-in";
 
 const GOOGLE_REVIEWS = [
